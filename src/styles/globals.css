@@ -1,0 +1,346 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* CSS Custom Properties for theming - Medical Professional */
+:root {
+  /* Light theme (default) - Medical Blue & Calm */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f0f7ff;
+  --bg-tertiary: #e6f3ff;
+  --text-primary: #1a365d;
+  --text-secondary: #4a5568;
+  --border-color: #cbd5e0;
+  --focus-color: #3182ce;
+  --hover-border: #90cdf4;
+  --accent-color: #3182ce;
+  --accent-light: #bee3f8;
+  --success-color: #38a169;
+  --success-light: #c6f6d5;
+  --error-color: #e53e3e;
+  --warning-color: #dd6b20;
+  --warning-light: #fed7aa;
+  --medical-blue: #2c5282;
+  --medical-teal: #319795;
+  --soft-gray: #edf2f7;
+}
+
+/* Dark theme - Medical Professional Dark */
+.app.dark {
+  --bg-primary: #1a202c;
+  --bg-secondary: #2d3748;
+  --bg-tertiary: #4a5568;
+  --text-primary: #f7fafc;
+  --text-secondary: #e2e8f0;
+  --border-color: #4a5568;
+  --focus-color: #63b3ed;
+  --hover-border: #718096;
+  --accent-color: #63b3ed;
+  --accent-light: #3182ce;
+  --success-color: #48bb78;
+  --success-light: #38a169;
+  --error-color: #fc8181;
+  --warning-color: #ed8936;
+  --warning-light: #dd6b20;
+  --medical-blue: #63b3ed;
+  --medical-teal: #4fd1c7;
+  --soft-gray: #4a5568;
+}
+
+/* High contrast theme */
+.app.high-contrast {
+  --bg-primary: #000000;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --border-color: #ffffff;
+  --focus-color: #ffff00;
+  --hover-border: #cccccc;
+  --accent-color: #ffff00;
+  --success-color: #00ff00;
+  --error-color: #ff0000;
+  --warning-color: #ffff00;
+}
+
+/* Font size variations */
+.app[data-font-size="small"] {
+  font-size: 14px;
+}
+
+.app[data-font-size="medium"] {
+  font-size: 16px;
+}
+
+.app[data-font-size="large"] {
+  font-size: 18px;
+}
+
+.app[data-font-size="extra-large"] {
+  font-size: 22px;
+}
+
+/* App layout */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.app-header {
+  background-color: var(--bg-secondary);
+  padding: 2rem 1rem;
+  text-align: center;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.app-header p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.app-main {
+  flex: 1;
+  padding: 0 1rem 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.app-footer {
+  background-color: var(--bg-secondary);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  border-top: 2px solid var(--border-color);
+  color: var(--text-secondary);
+  margin-top: auto;
+}
+
+.app-footer p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.app-footer small {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Accessibility improvements */
+*:focus {
+  outline: 3px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+/* Skip link for screen readers */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--accent-color);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Button styles */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid var(--accent-color);
+  border-radius: 6px;
+  background-color: var(--accent-color);
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: var(--accent-color);
+}
+
+.btn:focus {
+  outline: 3px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Form elements */
+input, select, textarea {
+  font-size: 1rem;
+  padding: 12px 16px;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 44px;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--focus-color);
+  box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.25);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f0f0f0;
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --border-color: #000000;
+    --focus-color: #0000ff;
+    --accent-color: #0000ff;
+  }
+
+  .app.dark {
+    --bg-primary: #000000;
+    --bg-secondary: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --border-color: #ffffff;
+    --focus-color: #ffff00;
+    --accent-color: #ffff00;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Print styles */
+@media print {
+  .app-header,
+  .app-footer {
+    background: transparent !important;
+    color: black !important;
+  }
+
+  .btn {
+    border: 1px solid black;
+    background: transparent;
+    color: black;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 1.5rem 1rem;
+  }
+
+  .app-header h1 {
+    font-size: 2rem;
+  }
+
+  .app-header p {
+    font-size: 1rem;
+  }
+
+  .app-main {
+    padding: 1rem;
+  }
+}
+
+/* Ensure adequate color contrast */
+.text-high-contrast {
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+}
+
+/* Loading states */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+}
+
+.loading::after {
+  content: '...';
+  animation: loading 1s infinite;
+}
+
+@keyframes loading {
+  0%, 20% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Error states */
+.error {
+  color: var(--error-color);
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--error-color);
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+/* Success states */
+.success {
+  color: var(--success-color);
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--success-color);
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
