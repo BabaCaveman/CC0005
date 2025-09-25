@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { VideoLearningModule } from './components/VideoLearning';
 import { Breadcrumbs } from './components/UI/Breadcrumbs';
 import { LessonNavigation } from './components/UI/LessonNavigation';

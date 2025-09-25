@@ -62,7 +62,7 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({
       </div>
 
       <div className="progress-bar-container">
-        <div className="progress-bar" role="progressbar" aria-valuenow={progress} aria-valuemin="0" aria-valuemax="100">
+        <div className="progress-bar" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>
           <div
             className="progress-fill"
             style={{ width: `${Math.max(0, Math.min(100, progress))}%` }}
